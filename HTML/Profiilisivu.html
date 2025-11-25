@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jimi Niemi Portfolio/Profiili</title>
+    <link rel="stylesheet" href="../CSS/Profiilisivuntyylit.css"> 
+    <link rel="stylesheet" href="../CSS/Navstyles.css">
+    <link href='https://fonts.googleapis.com/css?family=Antonio' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/08626bfbba.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.cdnfonts.com/css/tisa-sans-pro" rel="stylesheet">
+</head>
+<body>
+
+     <div id="nav-placeholder"></div>
+    
+    <div class="otsikko">Ansioluettelo</div>
+
+    <div class="Koulutus">
+        <h1>Education</h1>
+        <h2>Bachelor of Engineering - Game Programming</h2>
+        <p>Xamk - South-Eastern Finland University of Applied Sciences</p>
+        <p>August 2023 - </p>
+        <p>Valkeakoski, Pirkanmaa, Finland</p> 
+        <p>Currently studying game programming at South-Eastern Finland University of Applied Sciences.
+            Set to graduate in the spring of 2028 with a bachelor's degree in engineering,
+           I'm passionate about turning my ongoing love for video games into a career.</p>
+
+        <h2>Matriculation examination</h2>
+        <p>Valkeakosken Tietotien lukio</p>
+        <p>August 2019 - June 2022 </p>
+        <p>Valkeakoski, Pirkanmaa, Finland</p> 
+
+    </div>
+
+    <div class="Työkokemus">
+        <h1>Work experience</h1>
+        <h2>Siivooja</h2>
+        <p>Valkeakosken kaupunki - Kesätyö</p>
+        <p>June 2022 - July 2022</p>
+        <p>Valkeakoski, Pirkanmaa, Finland</p> 
+        <p>During my summer job as an office cleaner, I was responsible for maintaining cleanliness. 
+           This involved sweeping, mopping, and vacuuming floors to keep them tidy. Additionally, 
+           I cleaned windows to ensure they were clear and smudge-free. 
+           My goal was to create a neat and comfortable environment for office occupants.</p>
+
+        <h2>Convenience Store Employee</h2>
+        <p>Pirkanmaan Osuuskauppa - Summer job</p>
+        <p>June 2020 - July 2020</p>
+        <p>Valkeakoski, Pirkanmaa, Finland</p> 
+        <p>In my role at the convenience store, I focused on stocking shelves, 
+            unloading pallets, and handling customer service tasks. 
+            This involved maintaining organized displays, 
+            managing storeroom, and assisting customers with their needs.</p>
+    </div>
+
+    <div class="Erikoisosaaminen">
+        <h1>Other experience</h1>
+        <h2>Military Service</h2>
+        <p>Puolustusvoimat - Finnish Defence Forces - Contract</p>
+        <p>July 2022 - July 2023</p>
+        <p>Finland</p> 
+        <p>As a corporal in The Finnish Defence Forces Military Police Company, 
+            I led and managed a team with a focus on team building and efficiency in military police operations. 
+            This experience significantly build my leadership skills.
+             Throughout my military police service, 
+             I gained proficiency in utilizing alarms and CCTV systems within our security facility.</p>
+    </div>
+
+        <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    fetch("nav.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("nav-placeholder").innerHTML = data;
+        });
+    });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jimi Niemi Portfolio/Etusivu</title>
+    <link rel="stylesheet" href="CSS/Etusivuntyylit.css"> 
+    <link rel="stylesheet" href="CSS/Navstyles.css">
+    <link href='https://fonts.googleapis.com/css?family=Antonio' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/08626bfbba.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.cdnfonts.com/css/tisa-sans-pro" rel="stylesheet">
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+
+    <div class="front-page">
+        <div class="banner-card">
+            <img src="IMG/VerkkosivutTeh6mainmenu.jpg">
+        </div>
+        <div class="banner-text">
+            <h1 id="Welcome-text">Welcome to my portfolio</h1>
+            <p id="Me">Jimi Niemi, a third-year game programmer at XAMK</p>
+        </div>
+    
+    <div class="infobox"> 
+    My name is Jimi Niemi, and I am currently studying Game Programming at the South-Eastern Finland University 
+    of Applied Sciences (XAMK) in my first y ear.
+    During this time, I have been involved in several interesting game projects. I have been using programming languages 
+    such as C++ and C#, which I have utilized in game engines like Unity and Unreal Engine 5. This portfolio provides an insight 
+    into the projects I have worked on, my contributions to  them, 
+    and the level of expertise I have attained. Hello test. 
+    </div>
+
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    fetch("nav.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("nav-placeholder").innerHTML = data;
+        });
+    });
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+.otsikko h1{
+    text-align: center;
+    font-family: 'Antonio';
+    font-weight: 200;
+    text-decoration: underline;
+    margin-top: 60px;
+    padding: 20px;
+    font-size: 45px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card{
+    background-color: white;
+    flex-wrap: wrap;
+    width: 380px;
+    height: 400px;
+    margin: 25px;
+    border-radius: 0 0 15px 15px;
+    border: solid 3px black;
+}
+
+.card img{
+    height: 170px;
+    margin-bottom: 15px;
+    background-size: cover;
+}
+
+.card h2{
+    padding: 0 10px;
+    text-align: center;
+    font-family: 'Antonio';
+}
+
+.card p{
+    padding: 10px;
+    font-family:'Tisa Sans Pro', sans-serif;
+    font-weight: 600;
+}
+
+.card h3{
+    margin: 10px;
+    font-family: 'Antonio';
+}
+
+
+.item{
+    display: flexbox;
+    padding: 20px;
+    margin: 20px;
+    background-color: grey;
+    display: flex;
+}
+.text{
+    font-family: 'Tisa Sans Pro', sans-serif;
+    margin: 20px;
+    font-size: 30px;
+    display: flex;
+    float: left;
+}
+.textvideo{
+    font-family: 'Tisa Sans Pro', sans-serif;
+    margin: 20px;
+    font-size: 22px;
+    display: flex;
+    float: left;
+}
+
+@media only screen and (min-width: 1200px){
+    .item{
+        flex-direction: row;
+        display: flexbox;
+    }
+    .video video{
+        float: left;
+        height: 400px;
+        width: 600px;
+    }
+    .item img{
+        float: left;
+        width: 600px;
+        height: 600px;
+    }
+}
+
+@media only screen and (min-width: 850px) and (max-width: 1199px){
+    .item{
+        flex-direction: row;
+        display: flexbox;
+    }
+    .item video{
+        float: left;
+        height: 600px;
+        width: 800px;
+    }
+    .item img{
+        float: left;
+        height: 600px;
+        width: 800px;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 899px){
+    .item{
+        flex-direction: column;
+        display: flexbox;
+    }
+    .video video{
+        float: left;
+        height: 400px;
+        width: 400px;
+    }
+    .item img{
+        float: left;
+        width: 400px;
+        height: 600px;
+    }
+
+}
+@media only screen and (max-width: 599px){
+    .item{
+        flex-direction: column;
+        display: flexbox;
+    }
+    .video video{
+        float: left;
+        height: 400px;
+        width: 400px;
+    }
+    .item img{
+        float: left;
+        width: 400px;
+        height: 400px;
+    }
+
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jimi Niemi Portfolio/Kontaktit</title>
+    <link rel="stylesheet" href="../CSS/Kontaktisivuntyylit.css"> 
+    <link rel="stylesheet" href="../CSS/Navstyles.css">
+    <link href='https://fonts.googleapis.com/css?family=Antonio' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/08626bfbba.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.cdnfonts.com/css/tisa-sans-pro" rel="stylesheet">
+</head>
+<body>
+
+    
+     <div id="nav-placeholder"></div>
+
+    <div class="page">
+
+        
+        <div class="form">
+            <h2>Contacts</h2>
+            <form action="result.html" method="get">
+              <div class="info-box">
+              <label for="name">Name</label>
+              <input type="text" name="name" id="name" placeholder="Full Name" required>
+              </div>
+              <div class="info-box">
+              <label for="email">Email</label>
+              <input type="text" name="email" id="email" placeholder="Email" required>
+              </div>
+              <div class="info-box">
+              <label for="phone-number">Phone number</label>
+              <input type="number" name="phone-number" id="phone-number" placeholder="Phone number" required>
+              </div>
+              <div class="info-box">
+              <label for="message">Message</label>
+              <input type="text" name="message" id="message" placeholder="Message" required>
+              </div>
+              <div class="submit"> 
+              <input type="submit" value="Submit" name="submit" id="submit">
+              </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    fetch("nav.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("nav-placeholder").innerHTML = data;
+        });
+    });
+    </script>
+
+</body>
+</html>
