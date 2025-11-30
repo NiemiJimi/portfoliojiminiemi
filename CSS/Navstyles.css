@@ -11,10 +11,11 @@ nav{
     left: 0;
     height: 75px;
     width:100%;
-    background-color:rgb(220, 13, 13);
+    background-color:rgb(14, 153, 208);
     display: flex;
     justify-content: space-between;
     font-family: 'Antonio';
+    z-index: 1000;
 }
 
 .logo-container{

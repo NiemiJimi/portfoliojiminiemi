@@ -6,45 +6,80 @@
     box-sizing: border-box;
 }
 
-
-@media only screen and (max-width: 899px){
-    .banner-card img{
-        width: 100%;
-        height: 400px;
-    }
-
+.front-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* horizontal centering */
+    gap: clamp(20px, 4vw, 60px);
+    padding-top: 75px; 
 }
 
-@media only screen and (min-width: 2500px){
-    .banner-card img{
-        width: 100%;
-        height: 1200px;
-    }
+.herobanner{
+    position: relative;
+    width: 100%;
+    max-height: 70vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.herobanner img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .banner-text{
+    position: absolute;
     text-align: center;
-    color:black;
-    padding: 20px;
+    color:white;
+    padding: clamp(16px, 3vw, 32px);
     font-family: 'Antonio';
+    max-width: 80%;
+}
+
+/* Optional: make text more readable over image */
+.banner-text::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.7)
+    );
+    z-index: -1;
+    border-radius: 12px;
 }
 
 .banner-text h1{
-    font-size: 26px;
-    text-transform: uppercase;
-    font-weight: bold;
+    font-size: clamp(22px, 4vw, 38px);
+    margin-bottom: 0.5em;
 }
 
 .banner-text p {
-    font-size: 20px;
-    padding-top: 10px;
+    font-size: clamp(16px, 3vw, 22px);
 }
 
 .infobox{
-    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    width: min(90%, 800px); /* 90% on small screens, max 800px */
+}
+
+.infobox-text{
+    padding: clamp(16px, 4vw, 40px);
+    margin: clamp(12px, 3vw, 30px);
     font-weight: 500;
     text-align: center;
-    border: 3px solid rgb(220, 13, 13);
+    color: white;
+    background-color:rgb(14, 153, 208);
     font-family: 'Tisa Sans Pro', sans-serif;
-    margin: 20px;
+    border-radius: 20px;
 }
