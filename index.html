@@ -38,15 +38,35 @@
 
     </div>
 
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-    fetch("nav.html")
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("nav-placeholder").innerHTML = data;
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const isSubPage = window.location.pathname.includes("/HTML/");
+  const navPath = isSubPage ? "../nav.html" : "./nav.html";
+
+  fetch(navPath)
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("nav-placeholder").innerHTML = data;
+
+      const currentFile = window.location.pathname.split("/").pop();
+      const navLinks = document.querySelectorAll(".nav-list a");
+
+      navLinks.forEach(link => {
+        const linkFile = link.getAttribute("href").split("/").pop();
+
+        if (linkFile === currentFile) {
+          link.classList.add("active");
+        }
+
+        link.addEventListener("click", () => {
+          const check = document.getElementById("check");
+          if (check) check.checked = false;
         });
+      });
     });
-    </script>
+});
+</script>
 
 
 
