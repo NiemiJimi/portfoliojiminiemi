@@ -71,6 +71,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const isSubPage = window.location.pathname.includes("/HTML/");
   const navPath = isSubPage ? "../nav.html" : "./nav.html";
+
   fetch(navPath)
     .then(res => res.text())
     .then(data => {
@@ -81,7 +82,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       navLinks.forEach(link => {
         const linkFile = link.getAttribute("href").split("/").pop();
-
         if (linkFile === currentFile) {
           link.classList.add("active");
         }
@@ -91,9 +91,11 @@ document.addEventListener("DOMContentLoaded", function () {
           if (check) check.checked = false;
         });
       });
-    });
+    })
+    .catch(err => console.error("Nav load failed:", err));
 });
 </script>
+
 
 </body>
 </html>
