@@ -135,7 +135,7 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const isSubPage = window.location.pathname.includes("/HTML/");
-  const navPath = "/nav.html";
+  const navPath = isSubPage ? "../nav.html" : "./nav.html";
   fetch(navPath)
     .then(res => res.text())
     .then(data => {
