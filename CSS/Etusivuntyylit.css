@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;   /* horizontal centering */
-    gap: clamp(20px, 4vw, 60px);
+    gap: 0;   
     padding-top: 75px; 
 }
 
@@ -65,21 +65,124 @@
     font-size: clamp(16px, 3vw, 22px);
 }
 
+.background-box {
+    width: min(90%, 1200px);
+    background-color: rgb(20, 110, 160);  /* darker than buttons */
+     margin: clamp(20px, 4vw, 60px) auto;
+    padding: clamp(20px, 4vw, 40px) 
+             clamp(40px, 8vw, 120px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(30px, 4vw, 60px);
+    border-radius: 32px; 
+}
+
+.Project-insights {
+    width: min(100%, 900px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(30px, 6vw, 80px);
+}
+
+.Project-insights > div {
+    background: white;
+    color: black;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 14px 40px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Project-insights > div:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 60px rgba(0,0,0,0.35);
+}
+
+.Project-insights img {
+    width: 100%;
+    height: clamp(200px, 35vw, 360px);
+    object-fit: cover;
+    display: block;
+}
+
+.Project-insights h1 {
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    margin: 24px 24px 8px;
+    font-family: 'Antonio';
+    color: rgb(14, 153, 208);
+}
+
+.Project-insights p {
+    margin: 0 24px 28px;
+    font-size: clamp(1rem, 2.2vw, 1.25rem);
+    font-family: 'Tisa Sans Pro', sans-serif;
+    line-height: 1.6;
+}
+
+
+
 .infobox{
     margin-left: auto;
     margin-right: auto;
     display: flex;
     justify-content: center;
-    width: min(90%, 800px); /* 90% on small screens, max 800px */
+    width: min(100%, 900px); /* 90% on small screens, max 800px */
 }
 
+.infobox-text p {
+    font-size: inherit;
+  margin-bottom: 1.2rem;
+  line-height: 1.7;
+}
+
+
 .infobox-text{
-    padding: clamp(16px, 4vw, 40px);
+    padding: clamp(20px, 4vw, 48px);
     margin: clamp(12px, 3vw, 30px);
     font-weight: 500;
+    font-size: clamp(1rem, 2vw, 1.25rem);
     text-align: center;
     color: white;
     background-color:rgb(14, 153, 208);
+    background: rgba(14, 153, 208, 0.95);
     font-family: 'Tisa Sans Pro', sans-serif;
     border-radius: 20px;
+}
+
+.Contacts {
+    margin-top: clamp(30px, 5vw, 80px);
+    padding-bottom: 120px;
+    width: 100%;
+}
+
+
+.Contacts h1{
+    Color: rgb(255, 255, 255);
+    font-weight: 500;
+    text-align: center;
+    font-family: 'Tisa Sans Pro', sans-serif;
+}
+
+.contact-links {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin: clamp(12px, 3vw, 30px);
+      margin-bottom: 1rem;
+}
+
+.contact-btn {
+  padding: 12px 20px;
+  background-color: rgb(14, 153, 208);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.contact-btn:hover {
+  background-color: rgb(10, 120, 165);
+  transform: translateY(-2px);
 }

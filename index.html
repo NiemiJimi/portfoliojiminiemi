@@ -22,53 +22,97 @@
                 <p id="Me">Jimi Niemi, a third-year game programmer at XAMK</p>
             </div>
         </div>
+    <div class="background-box">
     
     <div class="infobox"> 
         <div class="infobox-text">
-    My name is Jimi Niemi, and I am currently studying Game Programming at the South-Eastern Finland University 
-    of Applied Sciences (XAMK). This is my 3rd year and I am graduating in the spring of 2027.
-    
+            <p>
+                My name is Jimi Niemi, and I am currently studying Game Programming at the 
+                South-Eastern Finland University of Applied Sciences (XAMK). This is my 3rd year 
+                and I am graduating in the spring of 2027.
+            </p>
 
-    Unity Engine has been my main platform to work on and my goal is to get to know all of its tools. I have worked on procedural generation, shaders, DOTS, UI, object pooling and many other systems.  Currently I am more keen on learning the ins and outs of Unreal Engine 5 because I find it better for developing PC games. 
-    Developing PC games is the field I am most working with in the future. This portfolio provides an insight 
-    into the projects I have worked on, and the level of expertise I have attained 
-    and what kind of game ideas I came up with, that I want to develope further.  
+            <p>
+                Unity Engine has been my main platform to work on and my goal is to get to know 
+                all of its tools. I have worked on procedural generation, shaders, DOTS, UI, 
+                object pooling and many other systems. Currently I am more keen on learning the 
+                ins and outs of Unreal Engine 5 because I find it better for developing PC games.
+            </p>
+
+            <p>
+                Developing PC games is the field I am most interested in for the future. 
+                This portfolio provides an insight into the projects I have worked on, 
+                and the level of expertise I have attained and what kind of game ideas I 
+                want to develop further.
+            </p> 
         </div>
     </div>
 
+    <div class="Project-insights">
+        <div class="Project1">
+            <img src="IMG/VerkkosivutTeh6mainmenu.jpg">
+            <h1>Golden Drift</h1>
+            <p>Fast paced combination of cars and FPS</p>
+        </div>
+        <div class="Project2">
+            <img src="IMG/VerkkosivutTeh6mainmenu.jpg">
+            <h1>Jari's River Chase</h1>
+            <p>Exciting river adventure</p>
+        </div>
+         <div class="Project3">
+            <img src="IMG/VerkkosivutTeh6mainmenu.jpg">
+            <h1>SO NO HEAD</h1>
+            <p>My first game project!</p>
+        </div>
+
+    </div>
+
+    <div class="Contacts">
+    <h1>Contact me!</h1>
+
+    <div class="contact-links">
+        <a href="mailto:jiminiemi.jn@gmail.com" class="contact-btn">Email Me</a>
+        <a href="https://www.linkedin.com/in/jimi-niemi-a21454263/" 
+        target="_blank" 
+        class="contact-btn">
+        LinkedIn
+        </a>
+    </div>
     </div>
 
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const isSubPage = window.location.pathname.includes("/HTML/");
-  const navPath = "/nav.html";
+    </div>
 
-  fetch(navPath)
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById("nav-placeholder").innerHTML = data;
+    </div>
 
-      const currentFile = window.location.pathname.split("/").pop();
-      const navLinks = document.querySelectorAll(".nav-list a");
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const isSubPage = window.location.pathname.includes("/HTML/");
+    const navPath = "/nav.html";
 
-      navLinks.forEach(link => {
-        const linkFile = link.getAttribute("href").split("/").pop();
+    fetch(navPath)
+        .then(res => res.text())
+        .then(data => {
+        document.getElementById("nav-placeholder").innerHTML = data;
 
-        if (linkFile === currentFile) {
-          link.classList.add("active");
-        }
+        const currentFile = window.location.pathname.split("/").pop();
+        const navLinks = document.querySelectorAll(".nav-list a");
 
-        link.addEventListener("click", () => {
-          const check = document.getElementById("check");
-          if (check) check.checked = false;
+        navLinks.forEach(link => {
+            const linkFile = link.getAttribute("href").split("/").pop();
+
+            if (linkFile === currentFile) {
+            link.classList.add("active");
+            }
+
+            link.addEventListener("click", () => {
+            const check = document.getElementById("check");
+            if (check) check.checked = false;
+            });
         });
-      });
+        });
     });
-});
-</script>
-
-
+    </script>
 
 </body>
 </html>
