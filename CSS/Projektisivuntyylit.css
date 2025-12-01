@@ -1,140 +1,161 @@
-.otsikko h1{
-    text-align: center;
-    font-family: 'Antonio';
-    font-weight: 200;
-    text-decoration: underline;
-    margin-top: 60px;
-    padding: 20px;
-    font-size: 45px;
+.project-section {
+  width: min(100%, 1000px);
+  margin: 0 auto;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;   /* space between projects */
 }
 
-.container{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+.otsikko {
+  margin-top: 80px;   /* pushes it below navbar */
+  margin-bottom: 10px;
+  text-align: center;
 }
 
-.card{
-    background-color: white;
-    flex-wrap: wrap;
-    width: 380px;
-    height: 400px;
-    margin: 25px;
-    border-radius: 0 0 15px 15px;
-    border: solid 3px black;
+.otsikko h1 {
+  font-family: 'Antonio';
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  color: rgb(14, 153, 208);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 16px;
 }
 
-.card img{
-    height: 170px;
-    margin-bottom: 15px;
-    background-size: cover;
-}
-
-.card h2{
-    padding: 0 10px;
-    text-align: center;
-    font-family: 'Antonio';
-}
-
-.card p{
-    padding: 10px;
-    font-family:'Tisa Sans Pro', sans-serif;
-    font-weight: 600;
-}
-
-.card h3{
-    margin: 10px;
-    font-family: 'Antonio';
+/* Decorative underline */
+.otsikko h1::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 80%;
+  height: 4px;
+  background: linear-gradient(to right, #0e99d0, #ffffff);
+  transform: translateX(-50%);
+  border-radius: 2px;
 }
 
 
-.item{
-    display: flexbox;
-    padding: 20px;
-    margin: 20px;
-    background-color: grey;
-    display: flex;
-}
-.text{
-    font-family: 'Tisa Sans Pro', sans-serif;
-    margin: 20px;
-    font-size: 30px;
-    display: flex;
-    float: left;
-}
-.textvideo{
-    font-family: 'Tisa Sans Pro', sans-serif;
-    margin: 20px;
-    font-size: 22px;
-    display: flex;
-    float: left;
+/* Single project layout */
+.project {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
 }
 
-@media only screen and (min-width: 1200px){
-    .item{
-        flex-direction: row;
-        display: flexbox;
-    }
-    .video video{
-        float: left;
-        height: 400px;
-        width: 600px;
-    }
-    .item img{
-        float: left;
-        width: 600px;
-        height: 600px;
-    }
+/* Media */
+.project-media video,
+.project-media img {
+  width: 100%;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
 }
 
-@media only screen and (min-width: 850px) and (max-width: 1199px){
-    .item{
-        flex-direction: row;
-        display: flexbox;
-    }
-    .item video{
-        float: left;
-        height: 600px;
-        width: 800px;
-    }
-    .item img{
-        float: left;
-        height: 600px;
-        width: 800px;
-    }
+/* Text */
+.project-content h2 {
+  font-family: 'Antonio';
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  margin-bottom: 10px;
 }
 
-@media only screen and (min-width: 600px) and (max-width: 899px){
-    .item{
-        flex-direction: column;
-        display: flexbox;
-    }
-    .video video{
-        float: left;
-        height: 400px;
-        width: 400px;
-    }
-    .item img{
-        float: left;
-        width: 400px;
-        height: 600px;
-    }
-
+.project-meta {
+  opacity: 0.7;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
 }
-@media only screen and (max-width: 599px){
-    .item{
-        flex-direction: column;
-        display: flexbox;
-    }
-    .video video{
-        float: left;
-        height: 400px;
-        width: 400px;
-    }
-    .item img{
-        float: left;
-        width: 400px;
-        height: 400px;
-    }
 
+.project-content p {
+  font-family: 'Tisa Sans Pro', sans-serif;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.project-content ul {
+  margin-top: 20px;
+  padding-left: 18px;
+}
+
+.project-content li {
+  font-family: 'Tisa Sans Pro';
+  margin-bottom: 8px;
+}
+
+/* ✅ Mobile layout */
+@media (max-width: 900px) {
+  .project {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slides img,
+.slides video {
+  min-width: 100%;
+  height: 360px;
+  object-fit: cover;
+}
+
+/* Arrow buttons */
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 36px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.slide-btn.left { left: 10px; }
+.slide-btn.right { right: 10px; }
+
+.slide-btn:hover {
+  background: rgb(14, 153, 208);
+}
+
+.project-content ul {
+  margin-top: 28px;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.project-content li {
+  list-style: none;
+  background: rgba(14, 153, 208, 0.12);
+  padding: 10px 16px;
+  border-left: 5px solid rgb(14, 153, 208);
+  border-radius: 8px;
+  font-weight: 600;
+}
+body {
+  background: radial-gradient(circle at top,
+    rgb(17, 40, 70),
+    rgb(8, 16, 30));
+  color: white;
+}
+.project {
+  background: rgba(255,255,255,0.05);
+  padding: 50px;
+  border-radius: 32px;
 }

@@ -1,63 +1,121 @@
-.page{
-    display: flex;
-    background-color: black;
-    float: center;
-    padding: 20px;
-    margin: 20px;
-    margin-top: 100px;
-    width: 400px;
-    align-content: center;
+body {
+  background: radial-gradient(circle at top, #134b6f, #061c28 70%);
+  min-height: 100vh;
+  color: white;
+  font-family: 'Tisa Sans Pro', sans-serif;
 }
 
-.form{
-    margin: 10px;
-    background-color: white;
-    padding: 10px;
-    border: solid 4px black;
-    border-radius: 5px;
-    width: 100%;
-}
-.form h2{
-    font-size: 30px;
-    font-family: 'Antonio';
-    font-weight: 200;
-    text-align: left;
-    float: left;
-    margin-left: 20px;
-    padding: 20px;
-}
-.info-box{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    padding-bottom: 15px;
+/* HERO TITLE */
+.contact-hero {
+  padding-top: 140px;
+  padding-bottom: 80px;
+  text-align: center;
 }
 
-.info-box label{
-    font-size: 20px;
-    font-family: 'Antonio';
-    font-weight: 400px;
-    margin: 5px;
+.contact-hero h1 {
+  font-family: 'Antonio';
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+  position: relative;
 }
 
-.info-box input{
-    font-family: 'Antonio';
-    width: 250px;
-    height: 40px;
-    border-radius: 7px;
-    border: solid 3px black;
-    padding: 0 10px; 
+.contact-hero h1::after {
+  content: "";
+  display: block;
+  width: 140px;
+  height: 4px;
+  background: rgb(14,153,208);
+  margin: 16px auto 0;
+  border-radius: 4px;
 }
 
-.submit input{
-    display: block;
-    width: 120px;
-    margin-top: 10px;
-    font-size: 20px;
-    padding: 10px;
-    border: solid 3px black;
-    border-radius: 3px;
-    font-family: 'Antonio';
-    cursor: pointer;
+.contact-hero p {
+  opacity: 0.85;
+  font-size: 1.2rem;
 }
+
+/* MAIN LAYOUT */
+.contact-container {
+  width: min(92%, 900px);
+  margin: 0 auto 120px;
+  display: grid;
+  gap: 40px;
+}
+
+.contact-card,
+.availability-card {
+  background: rgba(20, 110, 160, 0.25);
+  border-radius: 28px;
+  padding: 46px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* TITLES */
+.contact-card h2,
+.availability-card h2 {
+  font-family: 'Antonio';
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: rgb(14,153,208);
+}
+
+/* BUTTONS */
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.contact-btn {
+  background: rgb(14,153,208);
+  color: white;
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 14px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(14,153,208,0.4);
+}
+
+/* OPTIONAL GHOST BUTTON */
+.contact-btn.ghost {
+  background: transparent;
+  border: 2px solid rgb(14,153,208);
+}
+
+/* AVAILABILITY */
+.status {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.status.open {
+  color: #78ffb0;
+  font-weight: bold;
+}
+
+.location {
+  opacity: 0.8;
+  margin-top: 6px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .contact-card,
+  .availability-card {
+    padding: 30px;
+  }
+
+  .contact-links {
+    flex-direction: column;
+  }
+}
+
 

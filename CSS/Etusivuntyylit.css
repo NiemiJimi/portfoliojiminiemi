@@ -6,6 +6,13 @@
     box-sizing: border-box;
 }
 
+body {
+  background: radial-gradient(circle at top, #134b6f, #061c28 70%);
+  min-height: 100vh;
+  color: white;
+  font-family: 'Tisa Sans Pro', sans-serif;
+}
+
 .front-page {
     min-height: 100vh;
     display: flex;
@@ -100,6 +107,13 @@
 }
 
 .Project-insights img {
+    width: 100%;
+    height: clamp(200px, 35vw, 360px);
+    object-fit: cover;
+    display: block;
+}
+
+.Project-insights video {
     width: 100%;
     height: clamp(200px, 35vw, 360px);
     object-fit: cover;
