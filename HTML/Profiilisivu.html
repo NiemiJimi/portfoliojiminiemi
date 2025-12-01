@@ -9,6 +9,14 @@
     <link href='https://fonts.googleapis.com/css?family=Antonio' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/08626bfbba.js" crossorigin="anonymous"></script>
     <link href="https://fonts.cdnfonts.com/css/tisa-sans-pro" rel="stylesheet">
+
+  <script>
+  const isGitHub = window.location.hostname.includes("github.io");
+  const repo = "/portfoliojiminiemi/";
+  const base = isGitHub ? repo : "/";
+  document.write(`<base href="${base}">`);
+  </script>
+
 </head>
 <body>
 
@@ -69,30 +77,19 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const isSubPage = window.location.pathname.includes("/HTML/");
-  const navPath = isSubPage ? "../nav.html" : "./nav.html";
-
-  fetch(navPath)
+  fetch("nav.html")
     .then(res => res.text())
     .then(data => {
       document.getElementById("nav-placeholder").innerHTML = data;
 
-      const currentFile = window.location.pathname.split("/").pop();
-      const navLinks = document.querySelectorAll(".nav-list a");
-
-      navLinks.forEach(link => {
-        const linkFile = link.getAttribute("href").split("/").pop();
-        if (linkFile === currentFile) {
+      const currentPath = window.location.pathname;
+      document.querySelectorAll(".nav-list a").forEach(link => {
+        const linkPath = link.href;
+        if (currentPath === new URL(linkPath).pathname) {
           link.classList.add("active");
         }
-
-        link.addEventListener("click", () => {
-          const check = document.getElementById("check");
-          if (check) check.checked = false;
-        });
       });
-    })
-    .catch(err => console.error("Nav load failed:", err));
+    });
 });
 </script>
 
