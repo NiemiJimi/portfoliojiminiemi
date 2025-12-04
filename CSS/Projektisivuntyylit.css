@@ -1,10 +1,10 @@
 .project-section {
-  width: min(100%, 1000px);
+  width: min(100%, 1400px);
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: 80px clamp(20px, 4vw, 80px);
   display: flex;
   flex-direction: column;
-  gap: 100px;   /* space between projects */
+  gap: 120px;   /* space between projects */
 }
 
 .otsikko {
@@ -105,7 +105,8 @@
 .slides img,
 .slides video {
   min-width: 100%;
-  height: 360px;
+  aspect-ratio: 16 / 9;
+  max-height: 480px;
   object-fit: cover;
 }
 
@@ -117,12 +118,13 @@
   font-size: 36px;
   background: rgba(0,0,0,0.6);
   color: white;
-  border: none;
+  border: 1px solid rgba(255,255,255,0.2);
   width: 48px;
   height: 48px;
   border-radius: 50%;
   cursor: pointer;
   z-index: 10;
+  backdrop-filter: blur(6px);
 }
 
 .slide-btn.left { left: 10px; }
@@ -130,6 +132,7 @@
 
 .slide-btn:hover {
   background: rgb(14, 153, 208);
+  transform: translateY(-50%) scale(1.1);
 }
 
 .project-content ul {
@@ -154,8 +157,166 @@ body {
     rgb(8, 16, 30));
   color: white;
 }
+
 .project {
   background: rgba(255,255,255,0.05);
   padding: 50px;
   border-radius: 32px;
+}
+
+@media (min-width: 1200px) {
+  .project {
+    grid-template-columns: 1.1fr 1fr;
+    padding: 60px;
+  }
+}
+
+
+.projectinfobox {
+  margin-top: 0px;
+  background: rgba(14, 153, 208, 0.12);
+  border: 1px solid rgba(14, 153, 208, 0.35);
+  border-radius: 16px;
+  padding: 18px 22px;
+  transition: all 0.35s ease;
+  backdrop-filter: blur(6px);
+    font-family: 'Antonio';
+}
+
+.projectinfobox:hover {
+  transform: translateY(-3px);
+}
+
+.projectinfobox[open] {
+  background: rgba(14, 153, 208, 0.18);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.projectinfobox summary {
+  font-family: 'Antonio';
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Remove default arrow spacing */
+.projectinfobox summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Text inside */
+.projectinfobox p {
+  margin-top: 14px;
+  line-height: 1.7;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: all 0.3s ease;
+}
+
+.projectinfobox[open] p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toggle-icon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+}
+
+.toggle-icon::before,
+.toggle-icon::after {
+  content: "";
+  position: absolute;
+  background: rgb(14, 153, 208);
+  transition: transform 0.3s ease;
+}
+
+.toggle-icon::before {
+  width: 18px;
+  height: 3px;
+  top: 7px;
+  left: 0;
+}
+
+.toggle-icon::after {
+  width: 3px;
+  height: 18px;
+  left: 7px;
+  top: 0;
+}
+
+/* When open → turn plus into X */
+.projectinfobox[open] .toggle-icon::before {
+  transform: rotate(45deg);
+}
+
+.projectinfobox[open] .toggle-icon::after {
+  transform: rotate(-45deg);
+}
+
+.slide-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.slide-dots .dot {
+  width: 10px;
+  height: 10px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slide-dots .dot.active {
+  background: rgb(14, 153, 208);
+  transform: scale(1.4);
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+.lightbox.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.lightbox-content img,
+.lightbox-content video {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 18px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
 }

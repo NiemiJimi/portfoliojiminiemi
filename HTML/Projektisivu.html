@@ -37,7 +37,7 @@
         <video src="IMG/GoldenDriftVideo.mp4" muted loop></video>
         <video src="IMG/GD_loadingscreendemo.mp4" muted loop></video>
     </div>
-
+    <div class="slide-dots"></div>
     <button class="slide-btn right">›</button>
     </div>
 
@@ -47,19 +47,33 @@
       <p class="project-meta">Unity Engine • FPS + Vehicle Combat • 2025</p>
 
       <p>
-        Golden Drift is a first-person shooter that combines high-speed vehicle combat with
-        competitive multiplayer gameplay. The objective is to control the golden car and
-        score points for your team. Currently only basic elements implemented. 
+          fast paced FPS shooter, full customization of character, weapons and vehicles. 
+          Multiplayer with proximity chat.
       </p>
 
       <ul>
         <li>Full gameplay programming</li>
         <li>Object pooling system</li>
         <li>Vehicle physics</li>
-        <li>Weapon and interaction mechanics</li>
+        <li>Interaction mechanics</li>
+        <li>Weapons and gadgets</li>
         <li>UI & HUD</li>
       </ul>
     </div>
+
+<details class="projectinfobox">
+  <summary>
+    Read more
+    <span class="toggle-icon"></span>
+  </summary>
+      <p>
+        Golden Drift is a first-person shooter that combines high-speed vehicle combat with 
+        competitive multiplayer gameplay. The objective is to control the 
+        golden car and score points for your team. 
+        Currently only basic elements implemented.
+      </p>
+    </details>
+
   </article>
 
   <!-- PROJECT 2 -->
@@ -72,7 +86,7 @@
         <img src="IMG/jarisriverchaseonepagerlogo.jpg">
 
     </div>
-
+    <div class="slide-dots"></div>
     <button class="slide-btn right">›</button>
     </div>
 
@@ -91,6 +105,20 @@
         <li>Player movement</li>
       </ul>
     </div>
+
+<details class="projectinfobox">
+  <summary>
+    Read more
+    <span class="toggle-icon"></span>
+  </summary>
+      <p>
+        Currently studying game programming. Graduation expected in spring 2028.
+        Focus on Unity, Unreal Engine, gameplay systems and technical design.
+      </p>
+    </details>
+
+
+
   </article>
 
     <!-- PROJECT 3 -->
@@ -103,7 +131,7 @@
         <img src="IMG/carzyjohnmaxxermainmenu.jpg">
         <img src="IMG/crazyjohnmaxxeractionpic.png">
     </div>
-
+    <div class="slide-dots"></div>
     <button class="slide-btn right">›</button>
     </div>
 
@@ -122,6 +150,19 @@
         <li>SFX</li>
       </ul>
     </div>
+
+<details class="projectinfobox">
+  <summary>
+    Read more
+    <span class="toggle-icon"></span>
+  </summary>
+      <p>
+        Currently studying game programming. Graduation expected in spring 2028.
+        Focus on Unity, Unreal Engine, gameplay systems and technical design.
+      </p>
+    </details>
+
+
   </article>
 
 
@@ -135,7 +176,7 @@
         <video src="IMG/TwinStickVideo.mp4" muted loop></video>
         <video src="IMG/3DRomansoldierDancing.mp4" muted loop></video>
     </div>
-
+    <div class="slide-dots"></div>
     <button class="slide-btn right">›</button>
     </div>
 
@@ -152,10 +193,21 @@
         <li>Enemy AI</li>
         <li>3D modeling</li>
       </ul>
-    </div>
+      </div>
+
+<details class="projectinfobox">
+  <summary>
+    Read more
+    <span class="toggle-icon"></span>
+  </summary>
+      <p>
+        Currently studying game programming. Graduation expected in spring 2028.
+        Focus on Unity, Unreal Engine, gameplay systems and technical design.
+      </p>
+    </details>
+
+    
   </article>
-
-
 </section>
 
     <!-- Nav links -->
@@ -175,6 +227,8 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 });
+
+
 </script>
     <!-- Slideshow -->
 <script>
@@ -183,13 +237,45 @@ document.querySelectorAll(".project-media").forEach(media => {
   const items = slides.children;
   const prev = media.querySelector(".left");
   const next = media.querySelector(".right");
+  const dotsContainer = media.querySelector(".slide-dots");
+
   let index = 0;
+  let autoPlay;
+
+  // Create dots
+  Array.from(items).forEach((_, i) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (i === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => {
+      index = i;
+      update();
+    });
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = dotsContainer.querySelectorAll(".dot");
 
   function update() {
     slides.style.transform = `translateX(-${index * 100}%)`;
+
+    // Pause all videos
     Array.from(slides.querySelectorAll("video")).forEach(v => v.pause());
-    const activeVideo = items[index].tagName === "VIDEO" ? items[index] : null;
-    if (activeVideo) activeVideo.play();
+
+    // Play active video
+    const activeItem = items[index];
+    if (activeItem.tagName === "VIDEO") activeItem.play();
+
+    // Update dots
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[index].classList.add("active");
+  }
+
+  function startAutoPlay() {
+    autoPlay = setInterval(() => {
+      index = (index + 1) % items.length;
+      update();
+    }, 5000);
   }
 
   next.onclick = () => {
@@ -202,9 +288,56 @@ document.querySelectorAll(".project-media").forEach(media => {
     update();
   };
 
+  media.addEventListener("mouseenter", () => clearInterval(autoPlay));
+  media.addEventListener("mouseleave", startAutoPlay);
+
+  startAutoPlay();
   update();
 });
 </script>
+
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close">✕</span>
+  <div class="lightbox-content"></div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const lightbox = document.getElementById("lightbox");
+  const lightboxContent = lightbox.querySelector(".lightbox-content");
+  const closeBtn = lightbox.querySelector(".lightbox-close");
+
+  document.querySelectorAll(".slides img, .slides video").forEach(media => {
+    media.addEventListener("click", () => {
+      const clone = media.cloneNode(true);
+      clone.controls = true;
+      if (clone.tagName === "VIDEO") clone.play();
+
+      lightboxContent.innerHTML = "";
+      lightboxContent.appendChild(clone);
+      lightbox.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  closeBtn.onclick = () => {
+    lightbox.classList.remove("active");
+    lightboxContent.innerHTML = "";
+    document.body.style.overflow = "";
+  };
+
+  lightbox.onclick = e => {
+    if (e.target === lightbox) closeBtn.onclick();
+  };
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeBtn.onclick();
+  });
+});
+</script>
+
+
+
 
 
 </body>
