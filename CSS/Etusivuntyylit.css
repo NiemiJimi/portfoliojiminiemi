@@ -124,7 +124,7 @@ body {
     font-size: clamp(1.3rem, 3vw, 2rem);
     margin: 24px 24px 8px;
     font-family: 'Antonio';
-    color: rgb(14, 153, 208);
+    color: rgb(10, 60, 80);
 }
 
 .Project-insights p {
@@ -132,6 +132,7 @@ body {
     font-size: clamp(1rem, 2.2vw, 1.25rem);
     font-family: 'Tisa Sans Pro', sans-serif;
     line-height: 1.6;
+        color: rgb(14, 153, 208);
 }
 
 
@@ -164,39 +165,4 @@ body {
     border-radius: 20px;
 }
 
-.Contacts {
-    margin-top: clamp(30px, 5vw, 80px);
-    padding-bottom: 120px;
-    width: 100%;
-}
 
-
-.Contacts h1{
-    Color: rgb(255, 255, 255);
-    font-weight: 500;
-    text-align: center;
-    font-family: 'Tisa Sans Pro', sans-serif;
-}
-
-.contact-links {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    margin: clamp(12px, 3vw, 30px);
-      margin-bottom: 1rem;
-}
-
-.contact-btn {
-  padding: 12px 20px;
-  background-color: rgb(14, 153, 208);
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.contact-btn:hover {
-  background-color: rgb(10, 120, 165);
-  transform: translateY(-2px);
-}
