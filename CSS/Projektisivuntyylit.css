@@ -84,7 +84,7 @@
   margin-bottom: 8px;
 }
 
-/* ✅ Mobile layout */
+/* Mobile layout */
 @media (max-width: 900px) {
   .project {
     grid-template-columns: 1fr;
@@ -225,8 +225,8 @@ body {
 
 .toggle-icon {
   position: relative;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
 }
 
 .toggle-icon::before,
@@ -235,29 +235,30 @@ body {
   position: absolute;
   background: rgb(14, 153, 208);
   transition: transform 0.3s ease;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
 }
 
 .toggle-icon::before {
-  width: 18px;
-  height: 3px;
-  top: 7px;
-  left: 0;
+  width: 20px;
+  height: 2px;
+  transform: translate(-50%, -50%);
 }
 
 .toggle-icon::after {
-  width: 3px;
-  height: 18px;
-  left: 7px;
-  top: 0;
+  width: 2px;
+  height: 20px;
+  transform: translate(-50%, -50%);
 }
 
 /* When open → turn plus into X */
 .projectinfobox[open] .toggle-icon::before {
-  transform: rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .projectinfobox[open] .toggle-icon::after {
-  transform: rotate(-45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .slide-dots {
